@@ -1,5 +1,7 @@
-/* ===== GLOBAL ===== */
-* { box-sizing: border-box; }
+/* ================= GLOBAL ================= */
+* {
+  box-sizing: border-box;
+}
 
 html, body {
   height: 100%;
@@ -8,22 +10,94 @@ html, body {
                "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* ===== YES PAGE BACKGROUND ===== */
+/* ================= PAGE 1 (QUESTION) ================= */
+.page-question {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 20% 15%, #ffd6e8, transparent 45%),
+    radial-gradient(circle at 80% 85%, #fff1b8, transparent 50%),
+    linear-gradient(135deg, #ffeff5, #fff7d6);
+}
+
+.card {
+  width: min(520px, 92vw);
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 26px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.18);
+  backdrop-filter: blur(10px);
+}
+
+.title {
+  margin: 0 0 10px;
+  font-size: clamp(26px, 5vw, 38px);
+}
+
+.subtitle {
+  margin-bottom: 24px;
+  font-size: 15px;
+  opacity: 0.75;
+}
+
+/* Buttons */
+.btn-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  border: none;
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-yes {
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  color: white;
+  box-shadow: 0 12px 30px rgba(255,77,109,0.4);
+}
+
+.btn-no {
+  background: white;
+  color: #333;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Hint text */
+.hint {
+  margin-top: 18px;
+  min-height: 20px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* ================= PAGE 2 (YES / LETTER) ================= */
 .page-yes {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
   display: grid;
   place-items: center;
-
-  /* soft valentine gradient */
   background:
     radial-gradient(circle at 15% 10%, #ffd6e8, transparent 45%),
     radial-gradient(circle at 85% 85%, #fff1b8, transparent 50%),
     linear-gradient(135deg, #ffeff5, #fff7d6);
 }
 
-/* ===== CENTER LETTER ===== */
+/* Center letter */
 .letter-wrap {
   width: 100%;
   display: grid;
@@ -33,16 +107,14 @@ html, body {
   z-index: 2;
 }
 
-/* ===== LETTER CARD ===== */
+/* Letter card */
 .letter {
   width: min(720px, 92vw);
   background: rgba(255, 255, 255, 0.94);
   border-radius: 24px;
   padding: 32px 26px;
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.18);
   backdrop-filter: blur(10px);
-
-  /* normal letter style */
   text-align: left;
 }
 
@@ -67,7 +139,6 @@ html, body {
   font-weight: 900;
 }
 
-/* ===== BACK LINK ===== */
 .back-link {
   display: inline-block;
   margin-top: 14px;
@@ -80,7 +151,7 @@ html, body {
   opacity: 1;
 }
 
-/* ===== FLOATING HEARTS ===== */
+/* ================= FLOATING HEARTS ================= */
 .hearts {
   position: absolute;
   inset: 0;
@@ -98,7 +169,6 @@ html, body {
   animation: floatUp 10s linear infinite;
 }
 
-/* Heart shape */
 .heart,
 .heart::before,
 .heart::after {
@@ -114,24 +184,16 @@ html, body {
   border-radius: 50%;
 }
 
-.heart::before {
-  left: -9px;
-  top: 0;
-}
+.heart::before { left: -9px; top: 0; }
+.heart::after  { left: 0; top: -9px; }
 
-.heart::after {
-  left: 0;
-  top: -9px;
-}
-
-/* Floating animation */
 @keyframes floatUp {
   0%   { transform: translateY(0) rotate(45deg) scale(0.9); opacity: 0; }
   10%  { opacity: 0.55; }
   100% { transform: translateY(-120vh) rotate(45deg) scale(1.2); opacity: 0; }
 }
 
-/* Different heart variations */
+/* Heart variations */
 .h1  { left: 8%;  animation-duration: 9s; }
 .h2  { left: 16%; animation-duration: 12s; }
 .h3  { left: 24%; animation-duration: 10s; }
@@ -145,7 +207,7 @@ html, body {
 .h11 { left: 91%; animation-duration: 11.5s; }
 .h12 { left: 96%; animation-duration: 15s; }
 
-/* ===== MOBILE ===== */
+/* ================= MOBILE ================= */
 @media (max-width: 480px) {
   .letter {
     padding: 26px 18px;
